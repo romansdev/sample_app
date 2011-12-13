@@ -8,6 +8,7 @@ gem 'rails', '3.1.3'
 gem 'therubyracer'
 gem 'jquery-rails'
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +24,8 @@ end
 
 
 group :test do
-  # Pretty printed test output
+  gem 'nokogiri'
+  gem 'webrat'
   gem "rspec"
   gem 'turn', '0.8.2', :require => false
   gem 'sqlite3'
