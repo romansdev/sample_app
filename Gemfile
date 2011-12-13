@@ -1,10 +1,8 @@
 source 'http://rubygems.org'
 
+
+# Setup common for all environments
 gem 'rails', '3.1.3'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'therubyracer'
 gem 'jquery-rails'
 
@@ -17,32 +15,27 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+
+# Setup for environment during development
 group :development do
   gem 'sqlite3'
   gem 'rspec-rails'
 end
 
 
+# Setup for environment during tests
 group :test do
-  gem 'nokogiri'
-  gem 'webrat'
-  gem "rspec"
-  gem 'turn', '0.8.2', :require => false
+  #  gem 'nokogiri'
   gem 'sqlite3'
+  gem "rspec"
+  gem 'webrat'  # Required for some rspec methods
+  gem 'turn', '0.8.2', :require => false
 end
 
+
+# Setup for environment during production
 group :production do
-  gem 'pg'
+  gem 'pg'   # Remember that Hiroku does not offer sqlite or mysql
+  gem 'thin'
+  gem 'heroku'
 end
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
